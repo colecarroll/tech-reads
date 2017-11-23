@@ -1,0 +1,31 @@
+nav {
+  font-family: 'Spectral SC', serif;
+  background: white;
+  color: #6E256E;
+  margin: -65px 0 -15px -35px; }
+
+main h2 {
+  font-family: 'Spectral SC', serif;
+  color: #609732; }
+
+.indexContainer {
+  display: flex;
+  justify-content: space-around;
+  text-align: center; }
+  .indexContainer img {
+    height: 200px;
+    margin: 20px 20px;
+    border-radius: 5px; }
+  .indexContainer h2 {
+    margin: 10px 0 -15px 0;
+    font-size: 115%; }
+
+footer {
+  text-align: center;
+  margin: 0 0 -50px 0;
+  font-family: 'Open Sans', sans-serif; }
+  footer small {
+    color: #7C537C;
+    font-size: 60%; }
+
+/*# sourceMappingURL=main.css.map */
