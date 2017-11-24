@@ -22,7 +22,7 @@ nav {
   font-family: 'Spectral SC', serif;
   background: white;
   color: $color-primary-0;
-  margin: -65px 0 -15px -35px;
+  margin: 0 0 0 20px;
 }
 
 main {
@@ -36,7 +36,7 @@ main {
   display: flex;
   justify-content: space-around;
   img {
-    height: 200px;
+    height: 20em;
     margin: 20px 20px;
     border-radius: 5px;
   }
@@ -49,10 +49,29 @@ main {
 
 footer {
   text-align: center;
-  margin: 0 0 -50px 0;
+  margin: 5em 0 0 0;
   font-family: 'Open Sans', sans-serif;
   small {
     color: $color-primary-2;
-    font-size: 60%;
+    font-size: 100%;
+  }
+}
+
+a {
+  text-decoration: none;
+  h1, i {
+    color: $color-primary-0;
+  }
+}
+
+.indexDivBooks {
+  transition: .7s;
+}
+.indexDivBooks:hover, .indexDivAuthors:hover {
+  border-radius: 5px;
+  background: #8BAA71;
+  
+  h2 {
+    color: white;
   }
 }

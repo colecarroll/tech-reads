@@ -2,7 +2,7 @@ nav {
   font-family: 'Spectral SC', serif;
   background: white;
   color: #6E256E;
-  margin: -65px 0 -15px -35px; }
+  margin: 0 0 0 20px; }
 
 main h2 {
   font-family: 'Spectral SC', serif;
@@ -13,7 +13,7 @@ main h2 {
   justify-content: space-around;
   text-align: center; }
   .indexContainer img {
-    height: 200px;
+    height: 20em;
     margin: 20px 20px;
     border-radius: 5px; }
   .indexContainer h2 {
@@ -22,10 +22,24 @@ main h2 {
 
 footer {
   text-align: center;
-  margin: 0 0 -50px 0;
+  margin: 5em 0 0 0;
   font-family: 'Open Sans', sans-serif; }
   footer small {
     color: #7C537C;
-    font-size: 60%; }
+    font-size: 100%; }
+
+a {
+  text-decoration: none; }
+  a h1, a i {
+    color: #6E256E; }
+
+.indexDivBooks {
+  transition: .7s; }
+
+.indexDivBooks:hover, .indexDivAuthors:hover {
+  border-radius: 5px;
+  background: #8BAA71; }
+  .indexDivBooks:hover h2, .indexDivAuthors:hover h2 {
+    color: white; }
 
 /*# sourceMappingURL=main.css.map */
