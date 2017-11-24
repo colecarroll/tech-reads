@@ -3,8 +3,11 @@ var router = express.Router();
 var db = require('../db/connection.js')
 
 router.get('/', function(req, res, next) {
-
-  res.render('books');
+  return db.select().from('books')
+  .then((bookData)=>{
+    console.log(bookData)
+    res.render('books', {bookData});
+  })
 });
 
 module.exports = router;

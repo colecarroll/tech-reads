@@ -6,19 +6,16 @@ nav {
 
 main h2 {
   font-family: 'Spectral SC', serif;
-  color: #609732; }
-
-.indexContainer {
-  display: flex;
-  justify-content: space-around;
+  color: #609732;
   text-align: center; }
-  .indexContainer img {
-    height: 20em;
-    margin: 20px 20px;
-    border-radius: 5px; }
-  .indexContainer h2 {
-    margin: 10px 0 -15px 0;
-    font-size: 115%; }
+main h3 {
+  font-family: 'Spectral SC', serif;
+  color: #AA9F38; }
+
+section h2 {
+  font-family: 'Spectral SC', serif;
+  color: #609732;
+  text-align: center; }
 
 footer {
   text-align: center;
@@ -33,6 +30,22 @@ a {
   a h1, a i {
     color: #6E256E; }
 
+p {
+  font-family: 'Open Sans', sans-serif;
+  color: #7C537C; }
+
+.indexContainer {
+  display: flex;
+  justify-content: space-around;
+  text-align: center; }
+  .indexContainer img {
+    height: 20em;
+    margin: 20px 20px;
+    border-radius: 5px; }
+  .indexContainer h2 {
+    margin: 10px 0 -15px 0;
+    font-size: 115%; }
+
 .indexDivBooks {
   transition: .7s; }
 
@@ -41,5 +54,52 @@ a {
   background: #8BAA71; }
   .indexDivBooks:hover h2, .indexDivAuthors:hover h2 {
     color: white; }
+
+.books {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center; }
+
+.eachBook {
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+  text-align: center;
+  background: #f6f6f6;
+  margin: 0px 30px 20px 30px;
+  border-radius: 5px; }
+  .eachBook p {
+    font-size: 75%;
+    margin: 5px 0px; }
+  .eachBook h3 {
+    margin: 5px 0px; }
+  .eachBook img {
+    height: 150px;
+    margin: 10px 10px; }
+
+.eachBook:hover {
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+  text-align: center;
+  background: #8bAA71;
+  margin: 0px 30px 20px 30px;
+  border-radius: 5px; }
+  .eachBook:hover p {
+    font-size: 75%;
+    margin: 5px 0px;
+    color: #F6f6f6; }
+  .eachBook:hover h3 {
+    margin: 5px 0px;
+    color: white; }
+  .eachBook:hover img {
+    height: 150px;
+    margin: 10px 10px; }
+
+.booksDetails {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px; }
 
 /*# sourceMappingURL=main.css.map */

@@ -15,8 +15,20 @@
       <h1><i class="fa fa-book" aria-hidden="true"></i> Tech Reads</h1>
     </a>
   </nav>
-  <main>
-    <h1>HEllo</h1>
+  <section>
+    <h2>Books</h2>
+  </section>
+  <main class='books'>
+    {{#each bookData}}
+    <div class='eachBook'>
+      <img src="{{bookCoverURL}}" alt="cover">
+      <div class='booksDetails'>
+        <h3>{{bookTitle}}</h3>
+        <p>{{bookGenre}}</p>
+        <p>{{bookDescription}}</p>
+      </div>
+    </div>
+    {{/each}}
   </main>
   
 </body>
