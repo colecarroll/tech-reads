@@ -23,6 +23,18 @@ nav {
   background: white;
   color: $color-primary-0;
   margin: 0 0 0 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.subnav {
+  button {
+    color: $color-primary-2;
+    background: white;
+    border: none;
+    font-size: 100%;
+
+  }
 }
 
 main {

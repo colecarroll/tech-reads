@@ -2,7 +2,15 @@ nav {
   font-family: 'Spectral SC', serif;
   background: white;
   color: #6E256E;
-  margin: 0 0 0 20px; }
+  margin: 0 0 0 20px;
+  display: flex;
+  justify-content: space-between; }
+
+.subnav button {
+  color: #7C537C;
+  background: white;
+  border: none;
+  font-size: 100%; }
 
 main h2 {
   font-family: 'Spectral SC', serif;
