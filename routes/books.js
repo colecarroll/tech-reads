@@ -15,11 +15,23 @@ router.get('/new', function(req, res, next) {
 })
 
 router.post('/new', function(req, res, next) {
-  return db('books').insert(req.body)
-  .then(()=>{
-    res.redirect('/books')
+  let bookName = req.body.bookTitle 
+  return db.select().from('books').where('bookTitle', bookName).first()
+  .then((book)=>{
+    if (book === undefined) {
+      return db('books').insert(req.body)
+      .then(()=>{
+        res.redirect('/books')
+      })
+    } 
+    else {
+        }
   })
-})
+    .then(()=>{
+      res.send('Sorry, that book already exists')
+      })
+      .catch(err => res.status(500).send(err.message))
+    })
 
 router.get('/:id/delete', function(req, res, next) {
   const id = req.params.id 
