@@ -77,7 +77,10 @@ p {
     margin: 5px 0px; }
   .eachBook img {
     height: 150px;
-    margin: 10px 10px; }
+    margin: 10px 10px;
+    transition: 0.5s; }
+  .eachBook img:hover {
+    transform: scale(0.95); }
   .eachBook i {
     margin: 5px 5px; }
 

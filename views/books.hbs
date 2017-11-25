@@ -21,16 +21,16 @@
   </section>
   <main class='books'>
     {{#each bookData}}
-    <div class='eachBook'>
-      <img src="{{bookCoverURL}}" alt="cover">
-      <div class='booksDetails'>
-        <h3>{{bookTitle}}</h3>
-        <p>{{bookGenre}}</p>
-        <p>{{bookDescription}}</p>
+      <div class='eachBook'> 
+        <a href="/books/{{id}}"><img src="{{bookCoverURL}}" alt="cover"></a>
+        <div class='booksDetails'>
+          <h3>{{bookTitle}}</h3>
+          <p>{{bookGenre}}</p>
+          <p>{{bookDescription}}</p>
+        </div>
+        <a href="/books/{{id}}/delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
+      <a href="/books/update/{{id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
       </div>
-      <a href="/books/{{id}}/delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
-     <a href="/books/update/{{id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-    </div>
     {{/each}}
   </main>
   <footer>

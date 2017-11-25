@@ -5,7 +5,6 @@ var db = require('../db/connection.js')
 router.get('/', function(req, res, next) {
   return db.select().from('books')
   .then((bookData)=>{
-    console.log(bookData)
     res.render('books', {bookData});
   })
 });
@@ -69,6 +68,15 @@ router.put('/update/:id', function(req, res, next) {
     })
   .then(()=>{
     res.redirect('/books')
+  })
+})
+
+router.get('/:id', function(req, res, next) {
+  const id = req.params.id 
+  return db('books').where('id', id)
+  .then((bookdata) => {
+    var bookData = bookdata[0]
+  res.render('onebook', { bookData })
   })
 })
 

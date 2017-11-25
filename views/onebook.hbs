@@ -3,32 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Spectral+SC" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/stylesheets/main.css">
-  <title>Add a Book</title>
+  <title>{{bookData.bookTitle}}</title>
 </head>
 <body>
-  <nav>
+   <nav>
     <a href='/'>
       <h1><i class="fa fa-book" aria-hidden="true"></i> Tech Reads</h1>
     </a>
     <a href="/books"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</a>
   </nav>
-  <main class = 'mainBook'>
-    <h3>Add a Book</h3>
-    <form class= 'addBookForm' method='post' action="/books/new">
-      <label for="title">Title</label>
-      <input type="text" name='bookTitle' required='required'>
-      <label for="genre">Genre</label>
-      <input type="text" name='bookGenre' required='required'>
-      <label for="bookCoverURL">Book Cover URL</label>
-      <input type="url" name='bookCoverURL' required='required'>
-      <label for="bookDescription">Book Description</label>
-      <textarea name="bookDescription" cols="30" rows="10" required='required'></textarea>
-      <button type='submit'>Add Book</button>
-    </form>
+  
+  <main class='books'>
+    <div class='eachBook'>
+      <img src="{{bookData.bookCoverURL}}" alt="cover">
+      <div class='booksDetails'>
+        <h3>{{bookData.bookTitle}}</h3>
+        <p>{{bookData.bookGenre}}</p>
+        <p>{{bookData.bookDescription}}</p>
+      </div>
+      <a href="/books/{{bookData.id}}/delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
+     <a href="/books/update/{{bookData.id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+    </div>
   </main>
+ 
   <footer>
     <small>&copy; Cole Carroll 2017 <a href="https://github.com/colecarroll"><i class="fa fa-github" aria-hidden="true"></i></a>
     </small>

@@ -123,6 +123,10 @@ p {
   img {
     height: 150px;
     margin: 10px 10px;
+    transition: 0.5s;
+  }
+  img:hover {
+    transform:scale(0.95)
   }
   i {
     margin: 5px 5px;
