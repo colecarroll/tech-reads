@@ -10,4 +10,16 @@ router.get('/', function(req, res, next) {
   })
 });
 
+router.get('/new', function(req, res, next) {
+  res.render('addBook')
+})
+
+router.post('/new', function(req, res, next) {
+  console.log(req.body)
+  return db('books').insert(req.body)
+  .then(()=>{
+    res.redirect('/books')
+  })
+})
+
 module.exports = router;

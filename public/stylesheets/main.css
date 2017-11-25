@@ -26,7 +26,8 @@ footer {
     font-size: 100%; }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #6E256E; }
   a h1, a i {
     color: #6E256E; }
 
@@ -101,5 +102,34 @@ p {
   display: flex;
   flex-direction: column;
   padding: 10px 10px; }
+
+.mainBook {
+  text-align: center; }
+
+.addBookForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: 0 25% 0 25%; }
+  .addBookForm label {
+    font-family: 'Open Sans', sans-serif;
+    color: #7C537C;
+    margin: 5px 5px;
+    border-radius: 3px; }
+  .addBookForm input, .addBookForm textarea {
+    border: solid 1px lightgray;
+    border-radius: 3px;
+    font-family: 'Open Sans', sans-serif;
+    color: #7C537C;
+    margin: 5px 5px; }
+  .addBookForm button {
+    background: #609732;
+    border: none;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    margin: 10px 5px;
+    border-radius: 3px;
+    font-size: 150%; }
 
 /*# sourceMappingURL=main.css.map */

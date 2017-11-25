@@ -57,10 +57,12 @@ footer {
 
 a {
   text-decoration: none;
+  color: $color-primary-0;
   h1, i {
     color: $color-primary-0;
   }
 }
+
 
 p {
   font-family: 'Open Sans', sans-serif;
@@ -153,3 +155,37 @@ p {
   padding: 10px 10px;
 }
 
+//add book page
+.mainBook {
+  text-align: center;
+}
+
+.addBookForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: 0 25% 0 25%;
+  label {
+    font-family: 'Open Sans', sans-serif;
+    color: $color-primary-2;
+    margin: 5px 5px;
+    border-radius: 3px;
+  }
+  input, textarea {
+      border: solid 1px lightgray;
+      border-radius: 3px;
+      font-family: 'Open Sans', sans-serif;
+      color: $color-primary-2;
+      margin: 5px 5px;
+  }
+  button {
+    background: $color-secondary-1-0;
+    border: none;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    margin: 10px 5px;
+    border-radius: 3px;
+    font-size: 150%;
+  }
+}
