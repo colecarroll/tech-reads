@@ -15,8 +15,24 @@ router.get('/new', function(req, res, next) {
 })
 
 router.post('/new', function(req, res, next) {
-  console.log(req.body)
   return db('books').insert(req.body)
+  .then(()=>{
+    res.redirect('/books')
+  })
+})
+
+router.get('/:id/delete', function(req, res, next) {
+  const id = req.params.id 
+  return db('books').where('id', id)
+  .then((bookdata) => {
+    var bookData = bookdata[0]
+  res.render('deletebook', { bookData })
+  })
+})
+
+router.delete('/delete/:id', function(req, res, next) {
+  const id = req.params.id 
+  return db('books').where('books.id', id).del()
   .then(()=>{
     res.redirect('/books')
   })

@@ -124,6 +124,9 @@ p {
     height: 150px;
     margin: 10px 10px;
   }
+  i {
+    margin: 5px 5px;
+  }
 }
 
 .eachBook:hover {
@@ -188,4 +191,42 @@ p {
     border-radius: 3px;
     font-size: 150%;
   }
+  button:hover {
+    background: $color-secondary-1-2;
+    border: none;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    margin: 10px 5px;
+    border-radius: 3px;
+    font-size: 150%;
+  }
 }
+
+//delete book page
+
+.deleteButtonDiv {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+.deleteButton {
+    background: $color-secondary-1-0;
+    border: none;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    margin: 10px 5px;
+    border-radius: 3px;
+    font-size: 150%;
+  }
+  .deleteButton:hover {
+    background: $color-secondary-1-2;
+    border: none;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    margin: 10px 5px;
+    border-radius: 3px;
+    font-size: 150%;
+  }
+}
+
