@@ -30,7 +30,7 @@ router.post('/new', function(req, res, next) {
       res.send('Sorry, that book already exists')
       })
       .catch(err => res.status(500).send(err.message))
-    })
+})
 
 router.get('/:id/delete', function(req, res, next) {
   const id = req.params.id 

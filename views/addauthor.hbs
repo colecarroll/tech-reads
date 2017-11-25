@@ -6,7 +6,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Spectral+SC" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/stylesheets/main.css">
-  <title>Add a Book</title>
+  <title>Add an Author</title>
 </head>
 <body>
   <nav>
@@ -14,7 +14,7 @@
       <a href='/'>
       <h1><i class="fa fa-book" aria-hidden="true"></i> Tech Reads</h1>
       </a>
-      <a href="/books"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</a>
+      <a href="/authors"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</a>
     </div>
     <div class='subnav'>
       <a href="/authors">
@@ -27,17 +27,17 @@
   </nav>
   
   <main class = 'mainBook'>
-    <h3>Add a Book</h3>
-    <form class= 'addBookForm' method='post' action="/books/new">
-      <label for="title">Title</label>
-      <input type="text" name='bookTitle' required='required'>
-      <label for="genre">Genre</label>
-      <input type="text" name='bookGenre' required='required'>
-      <label for="bookCoverURL">Book Cover URL</label>
-      <input type="url" name='bookCoverURL' required='required'>
-      <label for="bookDescription">Book Description</label>
-      <textarea name="bookDescription" cols="30" rows="10" required='required'></textarea>
-      <button type='submit'>Add Book</button>
+    <h3>Add an Author</h3>
+    <form class= 'addBookForm' method='post' action="/authors/new">
+      <label for="firstName">First Name</label>
+      <input type="text" name='firstName' required='required'>
+      <label for="lastName">Last Name</label>
+      <input type="text" name='lastName' required='required'>
+      <label for="portraitURL">Portrait URL</label>
+      <input type="url" name='portraitURL' required='required'>
+      <label for="biography">Biography</label>
+      <textarea name="biography" cols="30" rows="10" required='required'></textarea>
+      <button type='submit'>Add Author</button>
     </form>
   </main>
   <footer>
