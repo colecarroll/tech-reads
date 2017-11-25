@@ -230,3 +230,44 @@ form {
   }
 }
 
+//edit book page
+
+.editBookForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 600px;
+  margin: 0 10% 0 10%;
+  label {
+    font-family: 'Open Sans', sans-serif;
+    color: $color-primary-2;
+    margin: 5px 5px;
+    border-radius: 3px;
+  }
+  input, textarea {
+      border: solid 1px lightgray;
+      border-radius: 3px;
+      font-family: 'Open Sans', sans-serif;
+      color: $color-primary-2;
+      margin: 5px 5px;
+  }
+  button {
+    background: $color-secondary-1-0;
+    border: none;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    margin: 10px 150px;
+    border-radius: 3px;
+    font-size: 150%;
+    
+  }
+  button:hover {
+    background: $color-secondary-1-2;
+    border: none;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    margin: 10px 150px;
+    border-radius: 3px;
+    font-size: 150%;
+  }
+}

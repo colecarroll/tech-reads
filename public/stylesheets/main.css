@@ -163,4 +163,38 @@ form .deleteButton:hover {
   border-radius: 3px;
   font-size: 150%; }
 
+.editBookForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 600px;
+  margin: 0 10% 0 10%; }
+  .editBookForm label {
+    font-family: 'Open Sans', sans-serif;
+    color: #7C537C;
+    margin: 5px 5px;
+    border-radius: 3px; }
+  .editBookForm input, .editBookForm textarea {
+    border: solid 1px lightgray;
+    border-radius: 3px;
+    font-family: 'Open Sans', sans-serif;
+    color: #7C537C;
+    margin: 5px 5px; }
+  .editBookForm button {
+    background: #609732;
+    border: none;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    margin: 10px 150px;
+    border-radius: 3px;
+    font-size: 150%; }
+  .editBookForm button:hover {
+    background: #8BAA71;
+    border: none;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    margin: 10px 150px;
+    border-radius: 3px;
+    font-size: 150%; }
+
 /*# sourceMappingURL=main.css.map */

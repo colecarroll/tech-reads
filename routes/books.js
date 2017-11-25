@@ -50,4 +50,27 @@ router.delete('/delete/:id', function(req, res, next) {
   })
 })
 
+router.get('/update/:id', function(req, res, next) {
+  const id = req.params.id 
+  return db('books').where('id', id)
+  .then((bookdata) => {
+    var bookData = bookdata[0]
+  res.render('editbook', { bookData })
+  })
+})
+
+router.put('/update/:id', function(req, res, next) {
+  var id = req.params.id
+  return db.table('books').where('id', id).update({
+      bookTitle : req.body.bookTitle,
+      bookGenre : req.body.bookGenre,
+      bookCoverURL : req.body.bookCoverURL,
+      bookDescription: req.body.bookDescription
+    })
+  .then(()=>{
+    res.redirect('/books')
+  })
+})
+
+
 module.exports = router;
