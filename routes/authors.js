@@ -77,4 +77,14 @@ router.put('/update/:id', function(req, res, next) {
   })
 })
 
+
+router.get('/:id', function(req, res, next) {
+  const id = req.params.id 
+  return db('authors').where('id', id)
+  .then((authordata) => {
+    var authorData = authordata[0]
+  res.render('oneauthor', { authorData })
+  })
+})
+
 module.exports = router;
