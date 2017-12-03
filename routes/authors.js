@@ -52,4 +52,29 @@ router.delete('/delete/:id', function(req, res, next) {
   })
 })
 
+
+router.get('/update/:id', function(req, res, next) {
+  const id = req.params.id 
+  return db('authors').where('id', id)
+  .then((authordata) => {
+    var authorData = authordata[0]
+  res.render('editauthor', { authorData })
+  })
+})
+
+router.put('/update/:id', function(req, res, next) {
+  var id = req.params.id
+  console.log(id)
+  console.log(req.body)
+  return db.table('authors').where('id', id).update({
+      firstName : req.body.firstName,
+      lastName : req.body.lastName,
+      biography: req.body.biography,
+      portraitURL : req.body.portraitURL
+    })
+  .then(()=>{
+    res.redirect('/authors')
+  })
+})
+
 module.exports = router;
