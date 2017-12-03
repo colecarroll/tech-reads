@@ -64,8 +64,6 @@ router.get('/update/:id', function(req, res, next) {
 
 router.put('/update/:id', function(req, res, next) {
   var id = req.params.id
-  console.log(id)
-  console.log(req.body)
   return db.table('authors').where('id', id).update({
       firstName : req.body.firstName,
       lastName : req.body.lastName,

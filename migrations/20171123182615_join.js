@@ -4,8 +4,8 @@ exports.up = function(knex, Promise) {
     knex.schema.createTable('join',
   (table)=> {
     table.increments().primary
-    table.integer('book_id')
-    table.integer('author_id')
+    table.integer('book_id').references('id').inTable('books').onDelete("CASCADE");
+    table.integer('author_id').references('id').inTable('authors').onDelete("CASCADE");
   })
   ])
 };
