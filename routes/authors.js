@@ -33,4 +33,23 @@ router.post('/new', function(req, res, next) {
       .catch(err => res.status(500).send(err.message))
 })
 
+
+router.get('/:id/delete', function(req, res, next) {
+  const id = req.params.id 
+  return db('authors').where('id', id)
+  .then((authordata) => {
+    var authorData = authordata[0]
+  res.render('deleteauthor', { authorData })
+  })
+})
+
+
+router.delete('/delete/:id', function(req, res, next) {
+  const id = req.params.id 
+  return db('authors').where('authors.id', id).del()
+  .then(()=>{
+    res.redirect('/authors')
+  })
+})
+
 module.exports = router;

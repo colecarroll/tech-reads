@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Spectral+SC" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/stylesheets/main.css">
+  <title>Delete Author</title>
+</head>
+<body>
+  <nav>
+    <div>
+      <a href='/'>
+      <h1><i class="fa fa-book" aria-hidden="true"></i> Tech Reads</h1>
+      </a>
+      <a href="/authors"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</a>
+    </div>
+    <div class='subnav'>
+      <a href="/authors">
+        <button>Authors <i class="fa fa-user-circle-o" aria-hidden="true"></i></button>
+      </a> 
+      <a href="/books">
+        <button>Books <i class="fa fa-bookmark" aria-hidden="true"></i></button>
+      </a>
+    </div>
+  </nav>
+  <main class='books'>
+    <div class='eachBook'>
+      <img src="{{authorData.portraitURL}}" alt="cover">
+      <div class='booksDetails'>
+        <h3>{{authorData.firstName}} {{authorData.lastName}}</h3>
+        <p>{{authorData.biography}}</p>
+      </div>
+    </div>
+  </main>
+    <div class='deleteButtonDiv'>
+      <form action="/authors/delete/{{authorData.id}}?_method=DELETE" method='POST'>
+        <button class='deleteButton'>Delete Author?</button>
+      </form>
+    </div>
+  <footer>
+    <small>&copy; Cole Carroll 2017 <a href="https://github.com/colecarroll"><i class="fa fa-github" aria-hidden="true"></i></a>
+    </small>
+  </footer>
+</body>
+</html>
