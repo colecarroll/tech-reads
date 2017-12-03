@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Books</title>
-  <link rel="stylesheet" href="stylesheets/main.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Spectral+SC" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="stylesheets/main.css">
 </head>
 <body>
   <nav>
@@ -37,6 +37,13 @@
           <h3>{{bookTitle}}</h3>
           <p>{{bookGenre}}</p>
           <p>{{bookDescription}}</p>
+          <div class ='bookAuthors'>
+          {{#each authors}}
+            <a class='authorNames' href='/authors/{{authOrder}}'>
+            <h4>{{name}}</h4>
+            </a>
+          {{/each}}
+          </div>
         </div>
         <a href="/books/{{id}}/delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
       <a href="/books/update/{{id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>

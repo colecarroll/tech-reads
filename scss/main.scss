@@ -73,6 +73,9 @@ a {
   h1, i {
     color: $color-primary-0;
   }
+  h4 {
+    font-family: 'Open Sans', sans-serif;
+  }
 }
 
 
@@ -174,6 +177,16 @@ p {
   padding: 10px 10px;
 }
 
+.bookAuthors {
+  display: flex;
+  flex-direction: row; 
+}
+
+.authorNames {
+  a {
+  font-family: 'Open Sans', sans-serif;
+  }
+}
 //add book page
 .mainBook {
   text-align: center;

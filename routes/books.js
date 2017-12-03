@@ -3,11 +3,39 @@ var router = express.Router();
 var db = require('../db/connection.js')
 
 router.get('/', function(req, res, next) {
-  return db.select().from('books')
+  return db('books').select().innerJoin('join', 'books.id', 'book_id').innerJoin('authors', 'author_id', 'authors.id')
+  .then((books) =>{
+    var newBooks = [];
+    for (var i = 0; i < books.length; i++) {
+    books[i].authors = [];
+    var obj = {
+      name: '',
+      authOrder: 1,
+    };
+    var insert = true;
+    for (var j = 0; j < newBooks.length; j++) {
+      if (newBooks[j].book_id === books[i].book_id) {
+        insert = false;
+        obj.name = books[i].firstName + ' ' + books[i].lastName;
+        obj.authOrder = books[i].author_id;
+        newBooks[j].authors.push(obj);
+      }
+    }
+    if (insert) {
+      obj.name = books[i].firstName + ' ' + books[i].lastName;
+      obj.authOrder = books[i].author_id;
+      books[i].authors.push(obj);
+      newBooks.push(books[i]);
+    }
+  }
+  var bookData = newBooks
+  return bookData
+  })
   .then((bookData)=>{
     res.render('books', {bookData});
   })
 });
+
 
 router.get('/new', function(req, res, next) {
   res.render('addBook')

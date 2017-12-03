@@ -5,6 +5,7 @@ var db = require('../db/connection.js')
 router.get('/', function(req, res, next) {
   return db.select().from('authors')
   .then((authorData)=>{
+    console.log(authorData)
     res.render('authors', {authorData});
   })
 });
