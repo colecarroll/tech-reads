@@ -24,9 +24,16 @@
         <h3>{{bookData.bookTitle}}</h3>
         <p>{{bookData.bookGenre}}</p>
         <p>{{bookData.bookDescription}}</p>
+        <div class ='authorsBooks'>
+          {{#each bookData.authors}}
+            <a href='/authors/{{authOrder}}'>
+            <h4>{{name}}</h4>
+            </a>
+          {{/each}}
+          </div>
       </div>
-      <a href="/books/{{bookData.id}}/delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
-     <a href="/books/update/{{bookData.id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+      <a href="/books/{{bookData.book_id}}/delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
+     <a href="/books/update/{{bookData.book_id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
     </div>
   </main>
  

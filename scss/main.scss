@@ -132,6 +132,14 @@ p {
     font-size: 75%;
     margin: 5px 0px;
   }
+  h5 {
+    font-family: 'Open Sans', sans-serif;
+      color: #609732;
+  }
+  a {
+    font-family: 'Open Sans', sans-serif;
+      color: #609732;
+  }
   h3 {
     margin: 5px 0px;
   }
@@ -177,15 +185,9 @@ p {
   padding: 10px 10px;
 }
 
-.bookAuthors {
+.authorsBooks {
   display: flex;
-  flex-direction: row; 
-}
-
-.authorNames {
-  a {
-  font-family: 'Open Sans', sans-serif;
-  }
+  flex-direction: row;
 }
 //add book page
 .mainBook {

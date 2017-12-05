@@ -101,12 +101,46 @@ router.put('/update/:id', function(req, res, next) {
 
 router.get('/:id', function(req, res, next) {
   const id = req.params.id 
-  return db('books').where('id', id)
+  return db('books').select().innerJoin('join', 'books.id', 'book_id').innerJoin('authors', 'author_id', 'authors.id')
+  .then((books) =>{
+    var newBooks = [];
+    for (var i = 0; i < books.length; i++) {
+    books[i].authors = [];
+    var obj = {
+      name: '',
+      authOrder: 1,
+    };
+    var insert = true;
+    for (var j = 0; j < newBooks.length; j++) {
+      if (newBooks[j].book_id === books[i].book_id) {
+        insert = false;
+        obj.name = books[i].firstName + ' ' + books[i].lastName;
+        obj.authOrder = books[i].author_id;
+        newBooks[j].authors.push(obj);
+      }
+    }
+    if (insert) {
+      obj.name = books[i].firstName + ' ' + books[i].lastName;
+      obj.authOrder = books[i].author_id;
+      books[i].authors.push(obj);
+      newBooks.push(books[i]);
+    }
+  }
+  var bookdata = newBooks
+  return bookdata
+  })
   .then((bookdata) => {
-    var bookData = bookdata[0]
-  res.render('onebook', { bookData })
+
+    for (var i = 0; i < bookdata.length; i++) {
+      if (bookdata[i].book_id == id) {
+      var bookData = bookdata[i]
+      }
+    }
+    console.log(bookData)
+    res.render('onebook', { bookData })
   })
 })
+
 
 
 module.exports = router;
