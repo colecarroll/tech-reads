@@ -130,13 +130,11 @@ router.get('/:id', function(req, res, next) {
   return bookdata
   })
   .then((bookdata) => {
-
     for (var i = 0; i < bookdata.length; i++) {
       if (bookdata[i].book_id == id) {
       var bookData = bookdata[i]
       }
     }
-    console.log(bookData)
     res.render('onebook', { bookData })
   })
 })

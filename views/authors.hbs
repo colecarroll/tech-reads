@@ -32,7 +32,7 @@
   <main class='books'>
     {{#each authorData}}
       <div class='eachBook'> 
-        <a href="/authors/{{id}}"><img src="{{portraitURL}}" alt="cover"></a>
+        <a href="/authors/{{author_id}}"><img src="{{portraitURL}}" alt="cover"></a>
         <div class='booksDetails'>
           <h3>{{firstName}} {{lastName}}</h3>
           <p>{{biography}}</p>
@@ -45,8 +45,8 @@
           {{/each}}
           </div>
         </div>
-        <a href="/authors/{{id}}/delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
-      <a href="/authors/update/{{id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+        <a href="/authors/{{author_id}}/delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
+      <a href="/authors/update/{{author_id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
       </div>
     {{/each}}
   </main>

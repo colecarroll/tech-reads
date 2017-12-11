@@ -23,6 +23,14 @@
       <div class='booksDetails'>
         <h3>{{authorData.firstName}} {{authorData.lastName}}</h3>
         <p>{{authorData.biography}}</p>
+        <div>
+            <h3>Titles:</h3>
+          {{#each authorData.bookTitles}}
+            <a href='/books/{{bookOrder}}'>
+            <h5>{{title}}</h5>
+            </a>
+          {{/each}}
+          </div>
       </div>
       <a href="/authors/{{authorData.id}}/delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
      <a href="/authors/update/{{authorData.id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>

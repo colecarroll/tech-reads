@@ -9,7 +9,6 @@ router.get('/', function(req, res, next) {
   .innerJoin('join', 'authors.id', 'author_id')
   .innerJoin('books', 'book_id', 'books.id')
   .then((record)=>{
-  console.log(record)
    var newAuthors = []
    for (var i = 0; i < record.length; i++) {
      record[i].bookTitles = []
@@ -37,10 +36,9 @@ router.get('/', function(req, res, next) {
    return authorData
   })
   .then((authorData)=>{
-    // console.log(authorData)
     res.render('authors', {authorData});
   })
-});;
+});
 
 
 router.get('/new', function(req, res, next) {
@@ -112,11 +110,45 @@ router.put('/update/:id', function(req, res, next) {
 
 router.get('/:id', function(req, res, next) {
   const id = req.params.id 
-  return db('authors').where('id', id)
-  .then((authordata) => {
-    var authorData = authordata[0]
-  res.render('oneauthor', { authorData })
+  return db('authors')
+  .select()
+  .innerJoin('join', 'authors.id', 'author_id')
+  .innerJoin('books', 'book_id', 'books.id')
+  .then((record)=>{
+   var newAuthors = []
+   for (var i = 0; i < record.length; i++) {
+     record[i].bookTitles = []
+     var obj = {
+       title: '',
+       bookOrder: 1,
+     };
+     var insert = true;
+     for (var j = 0; j < newAuthors.length; j++) {
+       if (newAuthors[j].author_id === record[i].author_id) {
+         insert = false;
+         obj.title = record[i].bookTitle;
+         obj.bookOrder = record[i].book_id;
+         newAuthors[j].bookTitles.push(obj)
+       }
+     }
+     if (insert) {
+       obj.title = record[i].bookTitle;
+       obj.bookOrder = record[i].book_id;
+       record[i].bookTitles.push(obj);
+       newAuthors.push(record[i])
+     }
+   }
+   var authordata = newAuthors
+   return authordata
   })
-})
+  .then((authordata)=>{
+    for (var i = 0; i < authordata.length; i++) {
+      if (authordata[i].author_id == id) {
+        var authorData = authordata[i]
+      }
+    }
+    res.render('oneauthor', {authorData});
+  })
+});
 
 module.exports = router;
