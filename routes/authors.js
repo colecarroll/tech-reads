@@ -2,13 +2,46 @@ var express = require('express');
 var router = express.Router();
 var db = require('../db/connection.js')
 
+
 router.get('/', function(req, res, next) {
-  return db.select().from('authors')
+  return db('authors')
+  .select()
+  .innerJoin('join', 'authors.id', 'author_id')
+  .innerJoin('books', 'book_id', 'books.id')
+  .then((record)=>{
+  console.log(record)
+   var newAuthors = []
+   for (var i = 0; i < record.length; i++) {
+     record[i].bookTitles = []
+     var obj = {
+       title: '',
+       bookOrder: 1,
+     };
+     var insert = true;
+     for (var j = 0; j < newAuthors.length; j++) {
+       if (newAuthors[j].author_id === record[i].author_id) {
+         insert = false;
+         obj.title = record[i].bookTitle;
+         obj.bookOrder = record[i].book_id;
+         newAuthors[j].bookTitles.push(obj)
+       }
+     }
+     if (insert) {
+       obj.title = record[i].bookTitle;
+       obj.bookOrder = record[i].book_id;
+       record[i].bookTitles.push(obj);
+       newAuthors.push(record[i])
+     }
+   }
+   var authorData = newAuthors
+   return authorData
+  })
   .then((authorData)=>{
-    console.log(authorData)
+    // console.log(authorData)
     res.render('authors', {authorData});
   })
-});
+});;
+
 
 router.get('/new', function(req, res, next) {
   res.render('addauthor')
