@@ -40,7 +40,6 @@ router.get('/', function(req, res, next) {
 router.get('/new', function(req, res, next) {
   return db.select().from('authors')
   .then((authorData)=>{
-    console.log(authorData)
     res.render('addBook', {authorData})
   })
 })
@@ -51,36 +50,43 @@ router.post('/new', function(req, res, next) {
   var author1 = Number(req.body.author1);
   var author2 = Number(req.body.author2);
   var author3 = Number(req.body.author3);
-  return db.select().from('books').where('bookTitle', bookName).first()
+  return db.select().from('books').where('bookTitle', bookName)
   .then((book)=>{
-    if (book === undefined) {  
+    console.log(book)
+    if (book.length === 0) {  
       return db('books').insert({
-        'bookTitle': req.body.title,
-        'bookGenre': req.body.genre,
-        'bookCoverURL' : req.body.bookCoverURL,
-        'bookDescription' : req.body.bookDescription
+        'bookTitle': req.body.bookTitle,
+        'bookGenre': req.body.bookGenre,
+        'bookDescription' : req.body.bookDescription,
+        'bookCoverURL' : req.body.bookCoverURL
       }).returning('id')
       .then((bookID)=>{
         var bookNumber = bookID[0]
         return db('join').insert({
           'book_id' : bookNumber,
           'author_id': author1
-        })
+        }).returning('book_id')
       })
-      .then(()=>{
-        if (author2 !== '') {
-          return db('join').insert({
-            'book_id' : bookNumber,
-            'author_id':author2
-          })
+      .then((bookID)=>{
+        var bookNumber = bookID[0]
+        if (author2 > 0 && author2 !== author1) {
+          return db('join').insert({'book_id' : bookNumber,
+          'author_id': author2}).returning('book_id')
+        }
+        else {
+          res.redirect('/books')
         }
       })
-      .then(()=>{
-        if (author3 !== '') {
+      .then((bookID)=>{
+        var bookNumber = bookID[0]
+        if (author3 > 0 && author3 !== author2 && author3 !== author1) {
           return db('join').insert({
             'book_id' : bookNumber,
             'author_id': author3
           })
+        }
+        else {
+          res.redirect('/books')
         }
       })
       .then(()=>{
@@ -88,13 +94,15 @@ router.post('/new', function(req, res, next) {
       })
     } 
     else {
+      res.send('Sorry, that book already exists')
         }
   })
-    .then(()=>{
-      res.send('Sorry, that book already exists')
-      })
-      .catch(err => res.status(500).send(err.message))
 })
+//     .then(()=>{
+//       res.send('Sorry, that book already exists')
+//       })
+//       .catch(err => res.status(500).send(err.message))
+// })
 
 router.get('/:id/delete', function(req, res, next) {
   const id = req.params.id 
