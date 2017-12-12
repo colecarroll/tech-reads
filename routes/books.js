@@ -38,15 +38,51 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/new', function(req, res, next) {
-  res.render('addBook')
+  return db.select().from('authors')
+  .then((authorData)=>{
+    console.log(authorData)
+    res.render('addBook', {authorData})
+  })
 })
 
+var bookNumber;
 router.post('/new', function(req, res, next) {
   let bookName = req.body.bookTitle 
+  var author1 = Number(req.body.author1);
+  var author2 = Number(req.body.author2);
+  var author3 = Number(req.body.author3);
   return db.select().from('books').where('bookTitle', bookName).first()
   .then((book)=>{
-    if (book === undefined) {
-      return db('books').insert(req.body)
+    if (book === undefined) {  
+      return db('books').insert({
+        'bookTitle': req.body.title,
+        'bookGenre': req.body.genre,
+        'bookCoverURL' : req.body.bookCoverURL,
+        'bookDescription' : req.body.bookDescription
+      }).returning('id')
+      .then((bookID)=>{
+        var bookNumber = bookID[0]
+        return db('join').insert({
+          'book_id' : bookNumber,
+          'author_id': author1
+        })
+      })
+      .then(()=>{
+        if (author2 !== '') {
+          return db('join').insert({
+            'book_id' : bookNumber,
+            'author_id':author2
+          })
+        }
+      })
+      .then(()=>{
+        if (author3 !== '') {
+          return db('join').insert({
+            'book_id' : bookNumber,
+            'author_id': author3
+          })
+        }
+      })
       .then(()=>{
         res.redirect('/books')
       })

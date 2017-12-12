@@ -37,6 +37,27 @@
       <input type="url" name='bookCoverURL' required='required'>
       <label for="bookDescription">Book Description</label>
       <textarea name="bookDescription" cols="30" rows="10" required='required'></textarea>
+      <label for="author1">Author 1 (required)</label>
+      <select id="author1" name='author1'>
+        <option selected value="">Choose an author</option>
+        {{#each authorData}}
+        <option value="{{id}}">{{firstName}} {{lastName}}</option>
+        {{/each}}
+      </select>
+      <label for="author2">Author 2 (optional)</label>
+      <select id="author2" name='author2'>
+        <option selected value="">Choose an author</option>
+        {{#each authorData}}
+        <option required='required' value="{{id}}">{{firstName}} {{lastName}}</option>
+        {{/each}}
+      </select>
+      <label for="author3">Author 3 (optional)</label>
+      <select id="author3" name='author3'>
+        <option selected value="">Choose an author</option>
+        {{#each authorData}}
+        <option value="{{id}}">{{firstName}} {{lastName}}</option>
+        {{/each}}
+      </select>
       <button type='submit'>Add Book</button>
     </form>
   </main>
