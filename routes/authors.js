@@ -41,9 +41,11 @@ router.get('/', function(req, res, next) {
 });
 
 
+
 router.get('/new', function(req, res, next) {
   res.render('addauthor')
 })
+
 
 router.post('/new', function(req, res, next) {
   let firstName = req.body.firstName
@@ -66,6 +68,7 @@ router.post('/new', function(req, res, next) {
 })
 
 
+
 router.get('/:id/delete', function(req, res, next) {
   const id = req.params.id 
   return db('authors').where('id', id)
@@ -74,6 +77,7 @@ router.get('/:id/delete', function(req, res, next) {
   res.render('deleteauthor', { authorData })
   })
 })
+
 
 
 router.delete('/delete/:id', function(req, res, next) {
@@ -94,6 +98,8 @@ router.get('/update/:id', function(req, res, next) {
   })
 })
 
+
+
 router.put('/update/:id', function(req, res, next) {
   var id = req.params.id
   return db.table('authors').where('id', id).update({
@@ -106,6 +112,7 @@ router.put('/update/:id', function(req, res, next) {
     res.redirect('/authors')
   })
 })
+
 
 
 router.get('/:id', function(req, res, next) {

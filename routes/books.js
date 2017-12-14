@@ -37,12 +37,15 @@ router.get('/', function(req, res, next) {
 });
 
 
+
 router.get('/new', function(req, res, next) {
   return db.select().from('authors')
   .then((authorData)=>{
     res.render('addBook', {authorData})
   })
 })
+
+
 
 var bookNumber;
 router.post('/new', function(req, res, next) {
@@ -52,7 +55,6 @@ router.post('/new', function(req, res, next) {
   var author3 = Number(req.body.author3);
   return db.select().from('books').where('bookTitle', bookName)
   .then((book)=>{
-    console.log(book)
     if (book.length === 0) {  
       return db('books').insert({
         'bookTitle': req.body.bookTitle,
@@ -98,11 +100,8 @@ router.post('/new', function(req, res, next) {
         }
   })
 })
-//     .then(()=>{
-//       res.send('Sorry, that book already exists')
-//       })
-//       .catch(err => res.status(500).send(err.message))
-// })
+
+
 
 router.get('/:id/delete', function(req, res, next) {
   const id = req.params.id 
@@ -113,6 +112,8 @@ router.get('/:id/delete', function(req, res, next) {
   })
 })
 
+
+
 router.delete('/delete/:id', function(req, res, next) {
   const id = req.params.id 
   return db('books').where('books.id', id).del()
@@ -120,6 +121,8 @@ router.delete('/delete/:id', function(req, res, next) {
     res.redirect('/books')
   })
 })
+
+
 
 router.get('/update/:id', function(req, res, next) {
   const id = req.params.id 
@@ -129,6 +132,8 @@ router.get('/update/:id', function(req, res, next) {
   res.render('editbook', { bookData })
   })
 })
+
+
 
 router.put('/update/:id', function(req, res, next) {
   var id = req.params.id
@@ -142,6 +147,8 @@ router.put('/update/:id', function(req, res, next) {
     res.redirect('/books')
   })
 })
+
+
 
 router.get('/:id', function(req, res, next) {
   const id = req.params.id 
