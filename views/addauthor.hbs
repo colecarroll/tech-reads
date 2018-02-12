@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,28 +9,38 @@
   <link rel="stylesheet" href="/stylesheets/main.css">
   <title>Add an Author</title>
 </head>
+
 <body>
   <nav>
     <div>
       <a href='/'>
-      <h1><i class="fa fa-book" aria-hidden="true"></i> Tech Reads</h1>
+        <h1>
+          <i class="fa fa-book" aria-hidden="true"></i> Tech Reads</h1>
       </a>
-      <a href="/authors"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</a>
+      <a href="/authors">
+        <i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</a>
     </div>
     <div class='subnav'>
       <a href="/authors">
-        <button>Authors <i class="fa fa-user-circle-o" aria-hidden="true"></i></button>
-      </a> 
+        <button>Authors
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        </button>
+      </a>
       <a href="/books">
-        <button>Books <i class="fa fa-bookmark" aria-hidden="true"></i></button>
+        <button>Books
+          <i class="fa fa-bookmark" aria-hidden="true"></i>
+        </button>
       </a>
     </div>
   </nav>
-  
-  <main class = 'mainBook'>
-    <p>*Note: Any new author added to the catalogue will not appear on the Authors page until after you have also added a book title for that  new author. Once you complete this form, go to <a href="/books/new">This Link</a> to add a book and make sure to select your new author from the list. The new author then will appear in the Authors List.</p>
+
+  <main class='mainBook'>
+    <p>*Note: Any new author added to the catalogue will not appear on the Authors page until after you have also added a book
+      title for that new author. Once you complete this form, go to
+      <a href="/books/new">This Link</a> to add a book and make sure to select your new author from the list. The new author then will appear
+      in the Authors List.</p>
     <h3>Add an Author</h3>
-    <form class= 'addBookForm' method='post' action="/authors/new">
+    <form class='addBookForm' method='post' action="/authors/new">
       <label for="firstName">First Name</label>
       <input type="text" name='firstName' required='required'>
       <label for="lastName">Last Name</label>
@@ -42,8 +53,12 @@
     </form>
   </main>
   <footer>
-    <small>&copy; Cole Carroll 2017 <a href="https://github.com/colecarroll"><i class="fa fa-github" aria-hidden="true"></i></a>
+    <small>&copy; Cole Carroll 2017
+      <a href="https://github.com/colecarroll">
+        <i class="fa fa-github" aria-hidden="true"></i>
+      </a>
     </small>
   </footer>
 </body>
+
 </html>

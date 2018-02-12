@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,20 +10,27 @@
   <link rel="stylesheet" href="/stylesheets/main.css">
   <title>Delete Author</title>
 </head>
+
 <body>
   <nav>
     <div>
       <a href='/'>
-      <h1><i class="fa fa-book" aria-hidden="true"></i> Tech Reads</h1>
+        <h1>
+          <i class="fa fa-book" aria-hidden="true"></i> Tech Reads</h1>
       </a>
-      <a href="/authors"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</a>
+      <a href="/authors">
+        <i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</a>
     </div>
     <div class='subnav'>
       <a href="/authors">
-        <button>Authors <i class="fa fa-user-circle-o" aria-hidden="true"></i></button>
-      </a> 
+        <button>Authors
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        </button>
+      </a>
       <a href="/books">
-        <button>Books <i class="fa fa-bookmark" aria-hidden="true"></i></button>
+        <button>Books
+          <i class="fa fa-bookmark" aria-hidden="true"></i>
+        </button>
       </a>
     </div>
   </nav>
@@ -35,14 +43,18 @@
       </div>
     </div>
   </main>
-    <div class='deleteButtonDiv'>
-      <form action="/authors/delete/{{authorData.id}}?_method=DELETE" method='POST'>
-        <button class='deleteButton'>Delete Author?</button>
-      </form>
-    </div>
+  <div class='deleteButtonDiv'>
+    <form action="/authors/delete/{{authorData.id}}?_method=DELETE" method='POST'>
+      <button class='deleteButton'>Delete Author?</button>
+    </form>
+  </div>
   <footer>
-    <small>&copy; Cole Carroll 2017 <a href="https://github.com/colecarroll"><i class="fa fa-github" aria-hidden="true"></i></a>
+    <small>&copy; Cole Carroll 2017
+      <a href="https://github.com/colecarroll">
+        <i class="fa fa-github" aria-hidden="true"></i>
+      </a>
     </small>
   </footer>
 </body>
+
 </html>

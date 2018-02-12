@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,20 +10,28 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="stylesheets/main.css">
 </head>
+
 <body>
   <nav>
     <div>
       <a href='/'>
-        <h1><i class="fa fa-book" aria-hidden="true"></i> Tech Reads</h1>
+        <h1>
+          <i class="fa fa-book" aria-hidden="true"></i> Tech Reads</h1>
       </a>
-      <a class='addBook' href="/books/new">Add Book <i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+      <a class='addBook' href="/books/new">Add Book
+        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+      </a>
     </div>
     <div class='subnav'>
       <a href="/authors">
-        <button>Authors <i class="fa fa-user-circle-o" aria-hidden="true"></i></button>
-      </a> 
+        <button>Authors
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        </button>
+      </a>
       <a href="/books">
-        <button>Books <i class="fa fa-bookmark" aria-hidden="true"></i></button>
+        <button>Books
+          <i class="fa fa-bookmark" aria-hidden="true"></i>
+        </button>
       </a>
     </div>
   </nav>
@@ -31,28 +40,38 @@
   </section>
   <main class='books'>
     {{#each bookData}}
-      <div class='eachBook'> 
-        <a href="/books/{{book_id}}"><img src="{{bookCoverURL}}" alt="cover"></a>
-        <div class='booksDetails'>
-          <h3>{{bookTitle}}</h3>
-          <div class ='authorsBooks'>
+    <div class='eachBook'>
+      <a href="/books/{{book_id}}">
+        <img src="{{bookCoverURL}}" alt="cover">
+      </a>
+      <div class='booksDetails'>
+        <h3>{{bookTitle}}</h3>
+        <div class='authorsBooks'>
           {{#each authors}}
-            <a href='/authors/{{authOrder}}'>
+          <a href='/authors/{{authOrder}}'>
             <h5>{{name}}</h5>
-            </a>
+          </a>
           {{/each}}
-          </div>
-          <p>{{bookGenre}}</p>
-          <p>{{bookDescription}}</p>
         </div>
-        <a href="/books/{{book_id}}/delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
-      <a href="/books/update/{{book_id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+        <p>{{bookGenre}}</p>
+        <p>{{bookDescription}}</p>
       </div>
+      <a href="/books/{{book_id}}/delete">
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      </a>
+      <a href="/books/update/{{book_id}}">
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      </a>
+    </div>
     {{/each}}
   </main>
   <footer>
-    <small>&copy; Cole Carroll 2017 <a href="https://github.com/colecarroll"><i class="fa fa-github" aria-hidden="true"></i></a>
+    <small>&copy; Cole Carroll 2017
+      <a href="https://github.com/colecarroll">
+        <i class="fa fa-github" aria-hidden="true"></i>
+      </a>
     </small>
   </footer>
 </body>
+
 </html>

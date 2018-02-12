@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +10,17 @@
   <link rel="stylesheet" href="/stylesheets/main.css">
   <title>{{authorData.firstName}} {{authorData.lastName}}</title>
 </head>
+
 <body>
-   <nav>
+  <nav>
     <a href='/'>
-      <h1><i class="fa fa-book" aria-hidden="true"></i> Tech Reads</h1>
+      <h1>
+        <i class="fa fa-book" aria-hidden="true"></i> Tech Reads</h1>
     </a>
-    <a href="/authors"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</a>
+    <a href="/authors">
+      <i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</a>
   </nav>
-  
+
   <main class='books'>
     <div class='eachBook'>
       <img src="{{authorData.portraitURL}}" alt="cover">
@@ -24,22 +28,30 @@
         <h3>{{authorData.firstName}} {{authorData.lastName}}</h3>
         <p>{{authorData.biography}}</p>
         <div>
-            <h3>Titles:</h3>
+          <h3>Titles:</h3>
           {{#each authorData.bookTitles}}
-            <a href='/books/{{bookOrder}}'>
+          <a href='/books/{{bookOrder}}'>
             <h5>{{title}}</h5>
-            </a>
+          </a>
           {{/each}}
-          </div>
+        </div>
       </div>
-      <a href="/authors/{{authorData.id}}/delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
-     <a href="/authors/update/{{authorData.id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+      <a href="/authors/{{authorData.id}}/delete">
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      </a>
+      <a href="/authors/update/{{authorData.id}}">
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      </a>
     </div>
   </main>
- 
+
   <footer>
-    <small>&copy; Cole Carroll 2017 <a href="https://github.com/colecarroll"><i class="fa fa-github" aria-hidden="true"></i></a>
+    <small>&copy; Cole Carroll 2017
+      <a href="https://github.com/colecarroll">
+        <i class="fa fa-github" aria-hidden="true"></i>
+      </a>
     </small>
   </footer>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +10,17 @@
   <link rel="stylesheet" href="/stylesheets/main.css">
   <title>{{bookData.bookTitle}}</title>
 </head>
+
 <body>
-   <nav>
+  <nav>
     <a href='/'>
-      <h1><i class="fa fa-book" aria-hidden="true"></i> Tech Reads</h1>
+      <h1>
+        <i class="fa fa-book" aria-hidden="true"></i> Tech Reads</h1>
     </a>
-    <a href="/books"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</a>
+    <a href="/books">
+      <i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</a>
   </nav>
-  
+
   <main class='books'>
     <div class='eachBook'>
       <img src="{{bookData.bookCoverURL}}" alt="cover">
@@ -24,22 +28,30 @@
         <h3>{{bookData.bookTitle}}</h3>
         <p>{{bookData.bookGenre}}</p>
         <p>{{bookData.bookDescription}}</p>
-        <div class ='authorsBooks'>
+        <div class='authorsBooks'>
           {{#each bookData.authors}}
-            <a href='/authors/{{authOrder}}'>
+          <a href='/authors/{{authOrder}}'>
             <h4>{{name}}</h4>
-            </a>
+          </a>
           {{/each}}
-          </div>
+        </div>
       </div>
-      <a href="/books/{{bookData.book_id}}/delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
-     <a href="/books/update/{{bookData.book_id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+      <a href="/books/{{bookData.book_id}}/delete">
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      </a>
+      <a href="/books/update/{{bookData.book_id}}">
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      </a>
     </div>
   </main>
- 
+
   <footer>
-    <small>&copy; Cole Carroll 2017 <a href="https://github.com/colecarroll"><i class="fa fa-github" aria-hidden="true"></i></a>
+    <small>&copy; Cole Carroll 2017
+      <a href="https://github.com/colecarroll">
+        <i class="fa fa-github" aria-hidden="true"></i>
+      </a>
     </small>
   </footer>
 </body>
+
 </html>
